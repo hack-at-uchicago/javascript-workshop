@@ -1,0 +1,10 @@
+{
+  "name": "janky-blog",
+  "version": "0.0.0",
+  "description": "for pedagogical purposes",
+  "dependencies": {
+    "express": "~3.4.8",
+    "handlebars": "~1.3.0",
+    "express3-handlebars": "~0.5.0"
+  }
+}

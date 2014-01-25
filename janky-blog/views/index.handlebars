@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<title>JankyBlog | View Posts</title>
+	</head>
+	<body>
+		<h1>Awsum Blog</h1>
+		<a href="/write">Write a post</a>
+		{{#each posts}}
+			<div class="post">
+				<h2>{{title}}</h2>
+				<div class="post-body">{{body}}</div>
+			</div>
+		{{/each}}
+	</body>
+</html>
