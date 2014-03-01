@@ -6,5 +6,9 @@
   {
     "title": "test",
     "body": "foo"
+  },
+  {
+    "title": "Another post",
+    "body": "fun timez"
   }
 ]

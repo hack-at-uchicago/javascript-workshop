@@ -7,10 +7,10 @@ var app = express();
 
 var POSTS_FILE = 'posts.json';
 
-// tell express to print requests in the console as they come in
-app.use(express.logger());
 // detail, not sure why express does't do this automatically
 app.use(express.urlencoded());
+// tell express to print requests in the console as they come in
+app.use(express.logger());
 // tell express to use handlebars as templating engine
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -51,5 +51,6 @@ app.post('/save', function(req, res) {
 	});
 });
 
-app.listen(3000);
-console.log('listening on http://localhost:3000/');
+app.listen(3000, function() {
+	console.log('listening on http://localhost:3000/');
+});

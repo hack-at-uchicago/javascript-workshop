@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>My First JS</title>
+	</head>
+	<body>
+		<p>
+			<input type="text" id="text_box"/> Chars: <span id="chars_display"></span>
+		</p>
+		<script type="text/javascript">
+			// chars in text box
+			var text_box = document.getElementById('text_box');
+			var chars_display = document.getElementById('chars_display');
+			function updateDisplay() {
+				chars_display.innerText = text_box.value.length;
+			}
+			text_box.addEventListener('keyup', updateDisplay);
+		</script>
+	</body>
+</html>
