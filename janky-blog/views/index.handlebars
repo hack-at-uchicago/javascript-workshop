@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>JankyBlog | View Posts</title>
+		<script src="jankyblog.js"></script>
 	</head>
 	<body>
 		<h1>Awsum Blog</h1>
@@ -9,6 +10,10 @@
 			<div class="post">
 				<h2>{{title}}</h2>
 				<div class="post-body">{{body}}</div>
+				<div class="likes">
+					<span id="num-likes-{{id}}" class="likes-counter">{{likes}}</span> people like this.&nbsp;
+					<a data-post-id="{{id}}" class="like-button" href="#">Like</a>
+				</div>
 			</div>
 		{{/each}}
 	</body>

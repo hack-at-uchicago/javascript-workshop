@@ -1,11 +1,10 @@
 // import needed libraries (installed with npm)
 var express = require('express');
-var fs = require('fs');
 var exphbs = require('express3-handlebars');
+var db = require('./jankydb');
 
 var app = express();
-
-var POSTS_FILE = 'posts.json';
+var db = new db.JankyDB('posts.json');
 
 // detail, not sure why express does't do this automatically
 app.use(express.urlencoded());
@@ -15,11 +14,12 @@ app.use(express.logger());
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
+// serve static files (jankyblog.js)
+app.use(express.static(__dirname + '/public'));
+
 // tell express how to handle requests
 app.get('/', function(req, res) {
-	fs.readFile(POSTS_FILE, function(err, contents) {
-		if(err) throw err;
-		var posts = JSON.parse(contents);
+	db.getPosts(function(posts) {
 		res.render('index', {posts: posts});
 	});
 });
@@ -29,28 +29,32 @@ app.get('/write', function(req, res) {
 });
 
 app.post('/save', function(req, res) {
-	// load posts
-	fs.readFile(POSTS_FILE, function(err, contents) {
-		if(err) throw err;
-		var posts = JSON.parse(contents);
-		// construct our new post from data received in request
-		var post = {
-			title: req.body.title,
-			body: req.body.body
-		};
-		// insert our new post
-		posts.push(post);
-		// serialize posts back to a string
-		var serialized = JSON.stringify(posts, null, 2);
-		// save posts with new one added
-		fs.writeFile(POSTS_FILE, serialized, function(err) {
-			if(err) throw err;
-			console.log('posts saved');
-			res.redirect('/'); // send user back to index
-		});
+	var post = {
+		title: req.body.title,
+		body: req.body.body,
+		likes: 0
+	};
+	db.addPost(post, function() {
+		console.log('posts saved');
+		res.redirect('/'); // send user back to front page
 	});
 });
 
+app.get('/like/:post_id', function(req, res) {
+	var post_id = req.params.post_id;
+	db.changePostLikes(post_id, 1, function() {
+		res.send(201);
+	});
+});
+
+app.get('/unlike/:post_id', function(req, res) {
+	var post_id = req.params.post_id;
+	db.changePostLikes(post_id, -1, function() {
+		res.send(201);
+	});
+});
+
+// start it up
 app.listen(3000, function() {
 	console.log('listening on http://localhost:3000/');
 });

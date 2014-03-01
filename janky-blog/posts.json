@@ -1,14 +1,11 @@
-[
-  {
-    "title": "Initial Post",
-    "body": "Hello world"
-  },
-  {
-    "title": "test",
-    "body": "foo"
-  },
-  {
-    "title": "Another post",
-    "body": "fun timez"
-  }
-]
+{
+  "next_post_id": 1,
+  "posts": [
+    {
+      "title": "Foo",
+      "body": "bar",
+      "likes": 1,
+      "id": 0
+    }
+  ]
+}

@@ -1,15 +1,17 @@
 <html>
 	<head>
 		<title>My First JS</title>
-	</head>
-	<body>
-		<button id="mybutton">Click Me</button>
 		<script type="text/javascript">
 			function sayHello() {
 				alert('Hello from JavaScript!');
 				console.log('hello in the console');
 			}
-			document.getElementById('mybutton').addEventListener('click', sayHello);
+			document.addEventListener('DOMContentLoaded', function() {
+				document.getElementById('mybutton').addEventListener('click', sayHello);
+			});
 		</script>
+	</head>
+	<body>
+		<button id="mybutton">Click Me</button>
 	</body>
 </html>
