@@ -1,11 +1,23 @@
 {
-  "next_post_id": 1,
+  "next_post_id": 3,
   "posts": [
     {
       "title": "Foo",
       "body": "bar",
-      "likes": 1,
+      "likes": 2,
       "id": 0
+    },
+    {
+      "title": "My thoughtful post",
+      "body": "bla bla bla",
+      "likes": 2,
+      "id": 1
+    },
+    {
+      "title": "bla bla",
+      "body": "asdlfkjasdf",
+      "likes": 2,
+      "id": 2
     }
   ]
 }

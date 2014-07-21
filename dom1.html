@@ -4,17 +4,16 @@
 		<script type="text/javascript">
 			document.addEventListener('DOMContentLoaded', function() {
 
-				// click list
-				var clicks = 0;
-				var click_list = document.getElementById('clicklist');
-				function addClick() {
-					clicks += 1;
-					var li = document.createElement('li');
-					li.innerText = 'click #' + clicks.toString();
-					click_list.appendChild(li);
-				}
+				var button = document.getElementById('mybutton');
+				var clicklist = document.getElementById('clicklist');
 
-				document.getElementById('mybutton').addEventListener('click', addClick);
+				button.addEventListener('click', function() {
+
+					var li = document.createElement('li');
+					li.innerText = 'click!'
+					clicklist.appendChild(li)
+
+				});
 				
 			});
 		</script>
@@ -23,6 +22,9 @@
 		<p>
 			<button id="mybutton">Click Me</button>
 		</p>
-		<ul id="clicklist"></ul>
+		<ul id="clicklist">
+			<li>first bullet</li>
+			<li>second bullet</li>
+		</ul>
 	</body>
 </html>

@@ -2,13 +2,14 @@
 	<head>
 		<title>My First JS</title>
 		<script type="text/javascript">
-			function sayHello() {
-				alert('Hello from JavaScript!');
-				console.log('hello in the console');
+			function setUpClickability() {
+				var button = document.getElementById('mybutton')
+				button.addEventListener('click', function() {
+					alert('clicked! thank you!')
+					console.log('clicked')
+				});
 			}
-			document.addEventListener('DOMContentLoaded', function() {
-				document.getElementById('mybutton').addEventListener('click', sayHello);
-			});
+			document.addEventListener('DOMContentLoaded', setUpClickability);
 		</script>
 	</head>
 	<body>

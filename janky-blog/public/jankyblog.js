@@ -15,13 +15,16 @@ function install_like_handler(like_button) {
 		} else {
 			command = 'unlike';
 		}
-		// AJAX magic!
+		// AJAX magic goes here
+
 		var req = new XMLHttpRequest();
-		req.open('get', '/' + command + '/' + post_id, true); // e.g. /like/2
+		req.open('get', '/' + command + '/' + post_id, true);
 		req.addEventListener('load', function() {
-			update_like_number(like_button)
+			update_like_number(like_button);
 		});
 		req.send();
+
+		console.log(command, post_id);
 	});
 }
 
