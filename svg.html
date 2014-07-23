@@ -13,7 +13,8 @@
 				var angle = (step * RADIANS_PER_STEP) % (2 * Math.PI);
 				var x = RADIUS * Math.cos(angle) + 400;
 				var y = RADIUS * Math.sin(angle) + 400;
-				// ...
+				circle.setAttribute('cx', x);
+				circle.setAttribute('cy', y);
 			}
 
 			document.addEventListener('DOMContentLoaded', function() {
@@ -21,10 +22,18 @@
 				
 				// make circle clickable
 				var circle = document.getElementById('moving_circle');
-				// ...
+				var clickNo = 1;
+				circle.addEventListener('click', function(evt) {
+					circle.setAttribute('fill', FILL_COLORS[clickNo % FILL_COLORS.length]);
+					clickNo++;
+				});
 
 				// animate circle
-				// ...
+				var step = 0;
+				setInterval(function() {
+					updateCircle(circle, step);
+					step++;
+				}, MS_PER_STEP);
 			});
 		</script>
 	</head>
