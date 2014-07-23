@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Stopwatch</title>
+    <script type="text/javascript">
+      var TICK_LENGTH_MS = 10;
+      
+      function msToSec(ms) {
+        return Math.round(ms / 1000);
+      }
+      
+
+      document.addEventListener('DOMContentLoaded', function() {
+
+        var paused = true;
+        var milliseconds = 0;
+        var intervalId = null;
+
+        var time_ind = document.getElementById('time_ind');
+        var start_pause = document.getElementById('start_pause');
+        var reset = document.getElementById('reset');
+
+        time_ind.innerText = msToSec(milliseconds);
+
+
+        start_pause.addEventListener('click', function() {
+          if(paused) {
+            // start
+            start_pause.innerText = 'Pause';
+            intervalId = setInterval(function() {
+              milliseconds += 1000;
+              time_ind.innerText = msToSec(milliseconds);
+            }, 1000)
+          } else {
+            // pause
+            start_pause.innerText = 'Start';
+            clearInterval(intervalId);
+          }
+          paused = !paused;
+        });
+
+        reset.addEventListener('click', function() {
+          paused = true;
+          start_pause.innerText = 'Start';
+          clearInterval(intervalId);
+          milliseconds = 0;
+          time_ind.innerText = msToSec(milliseconds);
+        });
+
+      });
+
+    </script>
+  </head>
+  <body>
+    <div id="time_ind"></div>
+    <button id="start_pause">Start</button>
+    <button id="reset">Reset</button>
+  </body>
+</html>

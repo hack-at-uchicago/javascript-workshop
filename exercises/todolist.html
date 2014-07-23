@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Todo List</title>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() {
+
+        var new_todo = document.getElementById('new_todo');
+        var add_todo = document.getElementById('add_todo');
+        var todo_list = document.getElementById('todo_list');
+
+        var todoElements = {};
+
+        var todoId = 0;
+
+        add_todo.addEventListener('click', function() {
+
+          var new_todo_text = new_todo.value;
+          var new_todo_id = todoId++;
+
+          new_todo.value = '';
+
+          var todo_el = document.createElement('li');
+          todoElements[new_todo_id] = todo_el;
+
+          var deleteButton = document.createElement('button');
+          deleteButton.innerText = 'Done';
+          deleteButton.addEventListener('click', function() {
+            removeTodo(new_todo_id);
+          });
+
+          todo_el.appendChild(document.createTextNode(new_todo_text + ' '));
+          todo_el.appendChild(deleteButton);
+
+          todo_list.appendChild(todo_el);
+
+        });
+
+        function removeTodo(id) {
+          todo_list.removeChild(todoElements[id]);
+          delete todoElements[id];
+        }
+
+      });
+    </script>
+  </head>
+  <body>
+    <h1>What needs to be done?</h1>
+    <input type="text" id="new_todo"/>
+    <button id="add_todo">Add</button>
+    <ul id="todo_list"></ul>
+  </body>
+</html>
