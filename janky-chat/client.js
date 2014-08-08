@@ -33,6 +33,11 @@ var socket = net.connect(connect_to, function() {
 		process.stdout.write('> ');
 	});
 
+	socket.on('end', function() {
+		console.log('server stopped!');
+		process.exit(-1);
+	});
+
 });
 
 process.stdin.setEncoding('utf8');
