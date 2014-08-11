@@ -1,0 +1,6 @@
+World's simplest blog engine, for pedagogical purposes.
+
+- No authentication
+- Write posts, view list of posts
+- Like posts with AJAX
+- No database, no problem. Stores everything in a JSON file, using JankyDB (jankydb.js).
