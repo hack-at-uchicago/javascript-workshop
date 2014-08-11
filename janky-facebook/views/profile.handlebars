@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Janky Facebook | Profile</title>
+  </head>
+  <body>
+    <h1>Janky Facebook | {{ person_name }}</h1>
+    <img src="/profpic.jpg"/>
+    {{#if already_friends}}
+      BFFS!
+    {{else}}
+      <a href="/friend/{{ person_id }}">Friend this person</a>
+    {{/if}}
+    <form action="/post_to_wall">
+      <p>Write a post</p>
+      <textarea name="post_text"></textarea>
+      <p>
+        <input type="submit"/>
+      </p>
+      <input type="hidden" value="{{ person_id }}"/>
+    </form>
+    {{#each wall_posts}}
+			<div class="wall_post">
+				<strong>{{ name }}</strong> said
+        <p class="wall_post_text">
+          {{ text }}
+        </p>
+			</div>
+		{{/each}}
+  </body>
+</html>

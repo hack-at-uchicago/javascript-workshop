@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Janky Facebook | Feed</title>
+  </head>
+  <body>
+    <h1>Janky Facebook | Your Feed</h1>
+    <p>You are {{ person_name }}. <a href="/logout">Log Out</a></p>
+    {{#each post}}
+			<div class="feed_post">
+				<strong>{{ from_name }}</strong> => <strong>{{ to_name }}</strong>
+        <p class="wall_post_text">
+          {{ text }}
+        </p>
+			</div>
+		{{/each}}
+  </body>
+</html>
