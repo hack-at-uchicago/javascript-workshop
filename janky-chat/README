@@ -1,0 +1,3 @@
+Simplest possible chatroom service: no authentication, one room, terminal only, no dependencies outside of Node.js stdlib.
+
+Run with Node -- Start server with no args; client gives usage.
