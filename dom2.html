@@ -3,19 +3,22 @@
 		<title>My First JS</title>
 		<script type="text/javascript">
 			document.addEventListener('DOMContentLoaded', function() {
-				// chars in text box
+				
 				var text_box = document.getElementById('text_box');
 				var chars_display = document.getElementById('chars_display');
-				function updateDisplay() {
-					chars_display.innerText = text_box.value.length;
-				}
-				text_box.addEventListener('keyup', updateDisplay);
+
+				text_box.addEventListener('keyup', function() {
+					chars_display.innerText = text_box.value.length
+				})
+
 			});
 		</script>
 	</head>
 	<body>
 		<p>
-			<input type="text" id="text_box"/> Chars: <span id="chars_display"></span>
+			<input type="text" id="text_box"/>
+			Chars:
+			<span id="chars_display"></span>
 		</p>
 	</body>
 </html>

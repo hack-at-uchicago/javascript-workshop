@@ -1,0 +1,1 @@
+JavaScript workshop in [these slides](https://docs.google.com/presentation/d/1CrSV1ixspU6N4SDQrJzL5TvG1xQqeU22soWpsmsGX8w/edit#slide=id.p) uses these example files — delete key parts of their JS, distribute to students, then walk through rewriting the deleted segments in the workshop.
